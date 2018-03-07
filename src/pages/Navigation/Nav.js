@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
 import Glamor from 'glamorous';
+import { connect } from 'react-redux';
 
 
 const Nav = Glamor.div (
@@ -42,9 +43,8 @@ const LinkOver =  Glamor.div (
 )
 
 
-class NavBar extends Component {
-    render() {
-        return (
+
+const NavBar  = ({items}) => (
     <Nav>
         <Links>
             <Link to='/Catalogue'><LinkOver>Catalogue</LinkOver></Link>
@@ -54,13 +54,17 @@ class NavBar extends Component {
         </Links>
         <Icons>
             <Link to='/ShoppingCart'><LinkOver>
-               li
+                {items}
             </LinkOver></Link>
         </Icons>
     </Nav>
         );
-    }
-}
 
+const calculateNumberOfItems = (cart = []) => cart.map(c => c.quantity).reduce((prev, current) => prev + current, 0)
 
-export default NavBar;
+const mapStateToProps = ({ cart }) => ({
+    cart,
+    items: calculateNumberOfItems(cart)
+});
+
+export default connect(mapStateToProps)(NavBar);

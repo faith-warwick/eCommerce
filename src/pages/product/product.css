@@ -7,4 +7,9 @@ productdiv {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    padding: 30px;
+}
+
+indProducts {
+    padding: 30px;
 }

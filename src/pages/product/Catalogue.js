@@ -10,13 +10,14 @@ const Catalogue = ({ products, onAddToCart }) => (
                 <NavBar/>
                 <productdiv>
                     {products.map(product => (
-                        <div>
+                        <indProducts>
                                 <div key={product.id}>{product.name}</div>
                                 <image key={product.id}><img src={product.image} className='CatalogueImg'/></image>
                             <div>
+                                <div key={product.id}>Price: {product.price}</div>
                                 <button onClick={e=>onAddToCart(product, 1)}>Add to cart</button>
                             </div>
-                        </div>
+                        </indProducts>
                         ))}
                 </productdiv>
             </body>

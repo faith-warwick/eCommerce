@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import NavBar from '../Navigation/Nav'
 
 
 const calculateNumberOfItems = (cart = []) => cart.map(c => c.quantity).reduce((prev, current) => prev + current, 0)
@@ -8,6 +9,7 @@ const calculateSubtotal = (cart = []) => cart.map(c => c.quantity * c.price).red
 
 const Cart = ({ cart = [], items, subtotal }) => (
     <div>
+        <NavBar/>
         <h1>Shopping Cart</h1>
         <div>Items: {items}</div>
         <div>Subtotal: {subtotal}</div>
