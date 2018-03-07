@@ -1,13 +1,36 @@
-import React, { Component } from 'react';
-import Glamor from 'glamorous';
+import React from 'react';
+import NavBar from '../Navigation/Nav';
+import { connect } from 'react-redux';
+import { addToCart} from "../../actions";
+import './product.css';
 
 
-class Catalogue extends Component {
-    render() {
-        return (
-            <div> Hello </div>
-        )
+const Catalogue = ({ products, onAddToCart }) => (
+            <body>
+                <NavBar/>
+                <productdiv>
+                    {products.map(product => (
+                        <div>
+                                <div key={product.id}>{product.name}</div>
+                                <image key={product.id}><img src={product.image} className='CatalogueImg'/></image>
+                            <div>
+                                <button onClick={e=>onAddToCart(product, 1)}>Add to cart</button>
+                            </div>
+                        </div>
+                        ))}
+                </productdiv>
+            </body>
+        );
+
+const mapStateToProps = ({ products = [] }) => ({
+    products
+});
+
+const mapDispatchToProps = dispatch => ({
+    onAddToCart(product = {}, quantity = 1) {
+        return dispatch(addToCart(product, quantity))
     }
-}
+});
 
-export default Catalogue;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Catalogue)

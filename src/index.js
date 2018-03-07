@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import './index.css';
-import App from './Routing';
+import Routing from './Routing';
 import registerServiceWorker from './registerServiceWorker';
+import Store from './store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+Store.subscribe(() => console.log(Store.getState()));
+
+const Wrapped = (
+    <Provider store={Store}>
+        <Routing />
+    </Provider>
+);
+
+ReactDOM.render(Wrapped, document.getElementById('root'));
 registerServiceWorker();

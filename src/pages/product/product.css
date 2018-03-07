@@ -1,0 +1,10 @@
+.CatalogueImg {
+    height: 200px;
+    width: 200px
+}
+
+productdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

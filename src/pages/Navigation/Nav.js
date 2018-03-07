@@ -53,11 +53,14 @@ class NavBar extends Component {
             <Link to ='/Sets'><LinkOver>Sets</LinkOver></Link>
         </Links>
         <Icons>
-            <Link to='/Cart'><LinkOver>Cart</LinkOver></Link>
+            <Link to='/ShoppingCart'><LinkOver>
+               li
+            </LinkOver></Link>
         </Icons>
     </Nav>
         );
     }
 }
+
 
 export default NavBar;
