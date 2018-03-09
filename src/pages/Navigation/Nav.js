@@ -37,7 +37,7 @@ const LinkOver =  Glamor.div (
     {
         color: '#BADDE8 !important',
         textDecoration: 'none !important',
-        fontSize: '160%'
+        fontSize: '160% !important'
 
     }
 )
@@ -53,7 +53,12 @@ const NavBar  = ({items}) => (
             <Link to ='/Sets'><LinkOver>Sets</LinkOver></Link>
         </Links>
         <Icons>
+            <Link to='/'><LinkOver>
+                <i className='material-icons'>home</i>
+            </LinkOver></Link>
+            &emsp;&emsp;
             <Link to='/ShoppingCart'><LinkOver>
+                <i className="material-icons">shopping_basket</i>
                 {items}
             </LinkOver></Link>
         </Icons>

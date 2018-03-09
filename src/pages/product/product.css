@@ -1,15 +1,13 @@
-.CatalogueImg {
-    height: 200px;
-    width: 200px
-}
 
 productdiv {
-    display: flex;
+    display:flex;
     flex-direction: row;
-    justify-content: flex-end;
+    width: 400px;
+    height: 600px;
     padding: 30px;
 }
 
-indProducts {
-    padding: 30px;
+.card-deck {
+    align-items: right;
+    padding:16px;
 }

@@ -7,12 +7,27 @@ const calculateNumberOfItems = (cart = []) => cart.map(c => c.quantity).reduce((
 const calculateSubtotal = (cart = []) => cart.map(c => c.quantity * c.price).reduce((prev, current) => prev + current, 0)
 
 
-const Cart = ({ cart = [], items, subtotal }) => (
+
+
+const Cart = ({ cart = [], bombs, items, subtotal }) => (
     <div>
         <NavBar/>
         <h1>Shopping Cart</h1>
-        <div>Items: {items}</div>
-        <div>Subtotal: {subtotal}</div>
+        <div>
+            In your cart:
+            <div>{cart.map(
+                prodList => (
+                    <div>
+                    <img src={prodList.image} alt={prodList.name} height="100" width="100"/>
+                    <div> {prodList.name} &emsp; {prodList.price}</div>
+                    </div>
+                )
+            )}</div>
+        </div>
+        <div>
+            <div>Items: {items}</div>
+            <div>Subtotal: {subtotal}</div>
+        </div>
     </div>
 );
 
@@ -21,5 +36,7 @@ const mapStateToProps = ({ cart }) => ({
     items: calculateNumberOfItems(cart),
     subtotal: calculateSubtotal(cart)
 });
+
+
 
 export default connect(mapStateToProps)(Cart)

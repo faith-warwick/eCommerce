@@ -1,0 +1,20 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+
+$pri-color: #6D929E;
+$sec-color: #B4CED6;
+$dang-color: #A65A6C;
+
+$theme-colors: (
+        primary: $pri-color,
+        danger: $dang-color,
+        secondary: $sec-color,
+        success: $green,
+        info: $sec-color,
+        warning: $yellow,
+        danger: $red,
+        light: $gray-100,
+        dark: $gray-800
+);
+
